@@ -2,7 +2,7 @@
 Author: AsaurusRex
 
 ## Purpose
-This is a project showcasing some Userland techniques related to abusing guard pages for C2 communications, namely Guard Comms and Guard Stomping. You can find the public talk on this topic here: (Link to follow).
+This is a project showcasing some Userland techniques related to abusing guard pages for C2 communications, namely Guard Comms and Guard Stomping. You can find the public talk on this topic here: https://www.youtube.com/watch?v=Oq_gzKWXmkY.
 
 ## Guard Comms
 Guard Comms is a technique where your post exploitation module will create a new RW section in memory, write the desired data to it along with a header and footer, and then change the memory permissions to RW + G before exiting. Your main c2 process can then crawl memory space looking at RW + G sections (looking for the header) to grab that data, before wiping and freeing the memory region. New regions could look suspicious since they aren't backed on disk, and sizing can become a problem, though less of a problem than with Guard Stomping.
